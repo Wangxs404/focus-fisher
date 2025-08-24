@@ -1,7 +1,10 @@
 # 专心摸鱼 - Browser Extension
 
 将浏览器变成鱼缸，在番茄钟模式下专心摸鱼。
-![效果演示](assets/landing.gif)
+
+<div align="center">
+  <img src="assets/landing.gif" alt="效果演示">
+</div>
 
 
 ## 功能特性
