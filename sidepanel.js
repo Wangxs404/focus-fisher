@@ -280,9 +280,22 @@ function animateFish() {
         fish.x = Math.max(0, Math.min(fish.x, animationCanvas.width - fish.size));
         fish.y = Math.max(0, Math.min(fish.y, animationCanvas.height - fish.size));
         
-        // Draw fish using preloaded image
+        // Draw fish using preloaded image with direction control
         if (fish.imageElement && fish.imageElement.complete) {
-            animationCtx.drawImage(fish.imageElement, fish.x, fish.y, fish.size, fish.size);
+            animationCtx.save();
+            
+            // Check fish direction and flip if moving left
+            if (fish.vx < 0) {
+                // Moving left - flip horizontally
+                animationCtx.translate(fish.x + fish.size, fish.y);
+                animationCtx.scale(-1, 1);
+                animationCtx.drawImage(fish.imageElement, 0, 0, fish.size, fish.size);
+            } else {
+                // Moving right - normal orientation
+                animationCtx.drawImage(fish.imageElement, fish.x, fish.y, fish.size, fish.size);
+            }
+            
+            animationCtx.restore();
         }
     });
     
