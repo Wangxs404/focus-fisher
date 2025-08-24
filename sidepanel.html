@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fish Timer - Swimming Fish Clock</title>
+    <link rel="stylesheet" href="sidepanel.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header with Clock and Draw Button -->
+        <div class="header">
+            <div class="header-content">
+                <div class="title-section">
+                    <h1>🐟 Fish Timer</h1>
+                    <div class="clock" id="clock">00:00:00</div>
+                </div>
+                <button id="openDrawModal" class="draw-button" title="打开画板">
+                    🎨
+                </button>
+            </div>
+        </div>
+
+        <!-- Fish Pond (Main Animation Area) -->
+        <div class="fish-pond">
+            <canvas id="animationCanvas" width="300" height="400"></canvas>
+        </div>
+
+        <!-- Drawing Modal -->
+        <div id="drawModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>🎨 绘制小鱼</h3>
+                    <button id="closeModal" class="close-button">&times;</button>
+                </div>
+                
+                <div class="modal-body">
+                    <!-- Drawing Tools -->
+                    <div class="tools">
+                        <div class="tool-group">
+                            <label>画笔大小:</label>
+                            <input type="range" id="brushSize" min="1" max="20" value="5">
+                            <span id="brushSizeValue">5px</span>
+                        </div>
+                        
+                        <div class="tool-group">
+                            <label>透明度:</label>
+                            <input type="range" id="opacity" min="10" max="100" value="100">
+                            <span id="opacityValue">100%</span>
+                        </div>
+
+                        <div class="tool-group">
+                            <label>颜色:</label>
+                            <div class="color-palette">
+                                <div class="color-option active" data-color="#000000" style="background-color: #000000;"></div>
+                                <div class="color-option" data-color="#ff0000" style="background-color: #ff0000;"></div>
+                                <div class="color-option" data-color="#00ff00" style="background-color: #00ff00;"></div>
+                                <div class="color-option" data-color="#0000ff" style="background-color: #0000ff;"></div>
+                                <div class="color-option" data-color="#ffff00" style="background-color: #ffff00;"></div>
+                                <div class="color-option" data-color="#ff00ff" style="background-color: #ff00ff;"></div>
+                                <div class="color-option" data-color="#00ffff" style="background-color: #00ffff;"></div>
+                                <div class="color-option" data-color="#ffa500" style="background-color: #ffa500;"></div>
+                            </div>
+                        </div>
+
+                        <div class="tool-group">
+                            <button id="clearCanvas">清除画布</button>
+                            <button id="createFish">添加到鱼池</button>
+                        </div>
+                    </div>
+
+                    <!-- Drawing Canvas -->
+                    <div class="canvas-container">
+                        <canvas id="drawingCanvas" width="280" height="300"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="sidepanel.js"></script>
+</body>
+</html>

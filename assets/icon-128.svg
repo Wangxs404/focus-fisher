@@ -1,0 +1,56 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="fishGradient128" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#42A5F5;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#2196F3;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#1E88E5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1976D2;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="eyeGradient128" cx="50%" cy="30%" r="50%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="80%" style="stop-color:#f8f8f8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e0e0e0;stop-opacity:1" />
+    </radialGradient>
+    <radialGradient id="bodyHighlight" cx="30%" cy="30%" r="40%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+  <!-- Fish body shadow -->
+  <ellipse cx="66" cy="66" rx="40" ry="24" fill="#000000" opacity="0.1" />
+  <!-- Fish body -->
+  <ellipse cx="64" cy="64" rx="40" ry="24" fill="url(#fishGradient128)" stroke="#1565C0" stroke-width="2" />
+  <!-- Body highlight -->
+  <ellipse cx="64" cy="64" rx="40" ry="24" fill="url(#bodyHighlight)" />
+  <!-- Fish tail -->
+  <path d="M 16 64 L 0 48 L 8 64 L 0 80 Z" fill="url(#fishGradient128)" stroke="#1565C0" stroke-width="2" />
+  <!-- Tail highlight -->
+  <path d="M 16 64 L 4 52 L 8 64 L 4 76 Z" fill="#ffffff" opacity="0.2" />
+  <!-- Fish eye -->
+  <circle cx="80" cy="56" r="8" fill="url(#eyeGradient128)" stroke="#1565C0" stroke-width="1" />
+  <circle cx="82" cy="54" r="3" fill="black" />
+  <circle cx="83" cy="52" r="1" fill="white" />
+  <!-- Top fin -->
+  <path d="M 64 40 L 48 24 L 56 40 L 72 40 Z" fill="url(#fishGradient128)" opacity="0.8" stroke="#1565C0" stroke-width="1.5" />
+  <!-- Top fin highlight -->
+  <path d="M 64 40 L 52 28 L 56 40 L 68 40 Z" fill="#ffffff" opacity="0.15" />
+  <!-- Bottom fin -->
+  <path d="M 64 88 L 48 104 L 56 88 L 72 88 Z" fill="url(#fishGradient128)" opacity="0.8" stroke="#1565C0" stroke-width="1.5" />
+  <!-- Bottom fin highlight -->
+  <path d="M 64 88 L 52 100 L 56 88 L 68 88 Z" fill="#ffffff" opacity="0.15" />
+  <!-- Side fin -->
+  <path d="M 40 72 L 24 88 L 40 80 Z" fill="url(#fishGradient128)" opacity="0.7" stroke="#1565C0" stroke-width="1.5" />
+  <!-- Side fin highlight -->
+  <path d="M 40 72 L 28 84 L 40 78 Z" fill="#ffffff" opacity="0.15" />
+  <!-- Scales pattern -->
+  <g opacity="0.1">
+    <circle cx="50" cy="58" r="2" fill="#ffffff" />
+    <circle cx="58" cy="62" r="2" fill="#ffffff" />
+    <circle cx="66" cy="58" r="2" fill="#ffffff" />
+    <circle cx="74" cy="62" r="2" fill="#ffffff" />
+    <circle cx="50" cy="70" r="2" fill="#ffffff" />
+    <circle cx="58" cy="74" r="2" fill="#ffffff" />
+    <circle cx="66" cy="70" r="2" fill="#ffffff" />
+    <circle cx="74" cy="74" r="2" fill="#ffffff" />
+  </g>
+</svg>

@@ -1,0 +1,27 @@
+<svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="fishGradient48" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2196F3;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1E88E5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1976D2;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="eyeGradient" cx="50%" cy="30%" r="50%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f0f0f0;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  <!-- Fish body -->
+  <ellipse cx="24" cy="24" rx="15" ry="9" fill="url(#fishGradient48)" stroke="#1565C0" stroke-width="1" />
+  <!-- Fish tail -->
+  <path d="M 6 24 L 0 18 L 3 24 L 0 30 Z" fill="url(#fishGradient48)" stroke="#1565C0" stroke-width="1" />
+  <!-- Fish eye -->
+  <circle cx="30" cy="20" r="3" fill="url(#eyeGradient)" stroke="#1565C0" stroke-width="0.5" />
+  <circle cx="31" cy="19" r="1" fill="black" />
+  <circle cx="31.5" cy="18.5" r="0.3" fill="white" />
+  <!-- Top fin -->
+  <path d="M 24 15 L 18 9 L 21 15 L 27 15 Z" fill="url(#fishGradient48)" opacity="0.8" stroke="#1565C0" stroke-width="0.5" />
+  <!-- Bottom fin -->
+  <path d="M 24 33 L 18 39 L 21 33 L 27 33 Z" fill="url(#fishGradient48)" opacity="0.8" stroke="#1565C0" stroke-width="0.5" />
+  <!-- Side fin -->
+  <path d="M 15 27 L 9 33 L 15 30 Z" fill="url(#fishGradient48)" opacity="0.7" stroke="#1565C0" stroke-width="0.5" />
+</svg>
