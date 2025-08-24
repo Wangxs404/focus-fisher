@@ -7,23 +7,64 @@ let currentColor = '#000000';
 let currentBrushSize = 5;
 let currentOpacity = 100;
 
-// Clock functionality
-function updateClock() {
-    const now = new Date();
-    const hours = String(now.getHours()).padStart(2, '0');
-    const minutes = String(now.getMinutes()).padStart(2, '0');
-    const seconds = String(now.getSeconds()).padStart(2, '0');
+// Pomodoro Timer functionality
+let pomodoroTimer = null;
+let timeRemaining = 25 * 60; // 25 minutes in seconds
+let isTimerRunning = false;
+
+// Initialize Pomodoro Timer
+function initializePomodoro() {
+    const startButton = document.getElementById('startButton');
+    const timerDisplay = document.getElementById('timerDisplay');
     
-    const clockElement = document.getElementById('clock');
-    if (clockElement) {
-        clockElement.textContent = `${hours}:${minutes}:${seconds}`;
-    }
+    // Update initial display
+    updateTimerDisplay();
+    
+    // Start button click event
+    startButton.addEventListener('click', function() {
+        startPomodoro();
+    });
 }
 
-// Initialize clock
-function initializeClock() {
-    updateClock();
-    setInterval(updateClock, 1000);
+// Start Pomodoro Timer
+function startPomodoro() {
+    if (isTimerRunning) return;
+    
+    isTimerRunning = true;
+    
+    // Hide start button
+    const startButton = document.getElementById('startButton');
+    startButton.style.display = 'none';
+    
+    // Start countdown
+    pomodoroTimer = setInterval(function() {
+        timeRemaining--;
+        updateTimerDisplay();
+        
+        // Timer finished
+        if (timeRemaining <= 0) {
+            clearInterval(pomodoroTimer);
+            isTimerRunning = false;
+            timeRemaining = 25 * 60; // Reset to 25 minutes
+            
+            // Show start button again
+            startButton.style.display = 'block';
+            updateTimerDisplay();
+            
+            // Optional: Show completion notification
+            console.log('Pomodoro session completed!');
+        }
+    }, 1000);
+}
+
+// Update timer display
+function updateTimerDisplay() {
+    const timerDisplay = document.getElementById('timerDisplay');
+    const minutes = Math.floor(timeRemaining / 60);
+    const seconds = timeRemaining % 60;
+    
+    const formattedTime = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    timerDisplay.textContent = formattedTime;
 }
 
 // Modal functionality
@@ -248,12 +289,69 @@ function animateFish() {
     requestAnimationFrame(animateFish);
 }
 
+// Initialize share functionality
+function initializeShare() {
+    const shareButton = document.getElementById('shareButton');
+    
+    shareButton.addEventListener('click', function() {
+        // 模拟复制功能
+        showShareMessage();
+    });
+}
+
+// Show share message
+function showShareMessage() {
+    // 创建提示消息
+    const message = document.createElement('div');
+    message.textContent = '已复制，邀请朋友一起摸鱼吧';
+    message.style.cssText = `
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%);
+        color: white;
+        padding: 12px 20px;
+        border-radius: 25px;
+        font-size: 14px;
+        font-weight: bold;
+        box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        z-index: 10000;
+        animation: slideInOut 3s ease-in-out;
+    `;
+    
+    // 添加动画样式
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes slideInOut {
+            0% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+            15% { opacity: 1; transform: translateX(-50%) translateY(0); }
+            85% { opacity: 1; transform: translateX(-50%) translateY(0); }
+            100% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+        }
+    `;
+    
+    document.head.appendChild(style);
+    document.body.appendChild(message);
+    
+    // 3秒后移除消息
+    setTimeout(() => {
+        if (message.parentNode) {
+            message.parentNode.removeChild(message);
+        }
+        if (style.parentNode) {
+            style.parentNode.removeChild(style);
+        }
+    }, 3000);
+}
+
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    initializeClock();
+    initializePomodoro();
     initializeModal();
     initializeDrawingTools();
     initializeFishPond();
+    initializeShare();
     
     console.log('Fish Timer Side Panel initialized');
 });
